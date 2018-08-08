@@ -14,7 +14,7 @@ export class EmployeeService {
 
     constructor(private _http: HttpClient) {
         this.myheaders = new Headers();
-        this.myheaders.append('Access-Control-Allow-Origin', 'http://35.154.157.254:80');
+        this.myheaders.append('Access-Control-Allow-Origin', 'http://35.154.157.254:8082');
         let options = new RequestOptions({ headers: this.myheaders })
 
     }
