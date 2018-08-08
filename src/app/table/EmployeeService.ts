@@ -18,7 +18,7 @@ export class EmployeeService {
         let options = new RequestOptions({ headers: this.myheaders })
 
     }
-    private employeeUrl = 'http://13.127.103.224:8080/employee-portal/api';
+    private employeeUrl = 'http://35.154.157.254:8080/employee-portal/api';
     getEmployees() {
         return this._http.get<IEmployee[]>(this.employeeUrl);
     }
