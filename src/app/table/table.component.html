@@ -1,0 +1,105 @@
+<div>
+
+    <app-search (searchEvent)="filterEmployee($event)"></app-search>
+
+    <app-add-employee (addSuccessEvent)="refreshdata($event)"></app-add-employee>
+</div>
+
+
+<p style="margin-top: 50px;"></p>
+<div id="snackbar">{{message}}</div>
+<div class="card" style="margin-left: 50px;margin-right: 50px;">
+
+    <div class="card-body">
+        <div class="table-responsive tableHeight">
+            <table class="table">
+                <thead class=" text-primary">
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Salary
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <!-- <th>
+                                      Manager
+                                    </th>-->
+                </thead>
+
+                <tbody *ngIf="!employeerecords || employeerecords?.length!=0 ; else noData">
+                    <ng-container *ngFor='let employee of employeerecords'>
+
+                        <tr *ngIf="employee.id==editEmployeId;else withoutedit">
+                            <td>
+                                {{employee.id}}
+                            </td>
+                            <td>
+                                <input type="text" [(ngModel)]="employee.name" />
+                                <!-- {{employee.name}}-->
+                            </td>
+                            <td>
+                                <input type="text" [(ngModel)]="employee.department" />
+                                <!--    {{employee.task}}-->
+                            </td>
+                            <td>
+                                <input type="text" [(ngModel)]="employee.salary" />
+
+                            </td>
+                            <td contenteditable="true">
+                                <input type="text" [(ngModel)]="employee.location" />
+
+                            </td>
+                            <td>
+                               
+                                <a  style="color:green;text-decoration: underline;text-decoration-color: gray;" (click)="openSubmit(employee)">  Submit</a>|
+                                <a   style="color:blue;text-decoration: underline;text-decoration-color: gray;" (click)="openCancel()">  Cancel</a>
+
+                            </td>
+                        </tr>
+                        <ng-template #withoutedit>
+                            <tr>
+                                <td>
+                                    {{employee.id}}
+                                </td>
+                                <td>
+                                    {{employee.name}}
+                                </td>
+                                <td>
+                                    {{employee.department}}
+                                </td>
+                                <td>
+                                    {{employee.salary}}
+                                </td>
+                                <td>
+                                    {{employee.location}}
+                                </td>
+                                <td>
+                                    <a   (click)="openEdit(employee.id)" style="color:green;text-decoration: underline;text-decoration-color: gray;">  Edit </a>|
+                                    <a   style="color:red;text-decoration: underline;text-decoration-color: lightblue;" (click)="openDelete(employee.id)">  Delete</a>
+
+                                </td>
+                            </tr>
+                        </ng-template>
+                    </ng-container>
+
+                </tbody>
+                <tr><td colspan="5">
+                <ng-template  #noData>
+                   
+                              <div style="text-align: center;">No data to show</div>
+                           
+                </ng-template>
+                </td>
+                </tr>
+                </table>
+        </div>
+    </div>
+</div>

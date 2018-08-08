@@ -1,0 +1,12 @@
+.custom-top {
+    margin-top: 50px;
+  border-style: ridge;
+}
+.custom-whole{
+ border-radius: 5px;
+   margin-top: 20px;
+    margin-left: 20px;
+     margin-right: 20px;
+   height:1000px;
+  border-style: ridge;
+}

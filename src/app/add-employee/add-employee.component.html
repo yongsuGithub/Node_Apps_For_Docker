@@ -1,0 +1,50 @@
+<div align="right">
+
+    <button type="button" class="btn btn-success" (click)="addEmployeeDialog()">Add Employee</button>
+
+</div>
+<p-dialog header="Add Employee" [(visible)]="display">
+    
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="id">Emp Id</label>
+                        <input type="text" [(ngModel)]="employee.id" class="form-control" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" [(ngModel)]="employee.name" class="form-control" id="name" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <label for="dept">department</label>
+                        <input type="text" [(ngModel)]="employee.department" class="form-control" id="dept" [ngModelOptions]="{standalone: true}">
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        <label for="salary">salary</label>
+                        <input type="text" [(ngModel)]="employee.salary" class="form-control" id="salary" [ngModelOptions]="{standalone: true}">
+
+
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <label for="location">Location</label>
+                        <input type="text" [(ngModel)]="employee.location" class="form-control" id="location" [ngModelOptions]="{standalone: true}"></div>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit" (click)="submitpopup(employee)" class="btn btn-success">Submit</button>
+        <button type="submit" (click)="closepopup()" class="btn btn-danger">Close</button>
+    </form>
+</p-dialog>
