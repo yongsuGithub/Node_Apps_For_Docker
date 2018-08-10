@@ -14,11 +14,11 @@ export class EmployeeService {
 
     constructor(private _http: HttpClient) {
         this.myheaders = new Headers();
-        this.myheaders.append('Access-Control-Allow-Origin', 'http://35.154.157.254:8082');
+        this.myheaders.append('Access-Control-Allow-Origin', 'http://13.232.176.60:8082');
         let options = new RequestOptions({ headers: this.myheaders })
 
     }
-    private employeeUrl = 'http://35.154.157.254:8080/employee-portal/api';
+    private employeeUrl = 'http://13.232.176.60:8080/employee-portal/api';
     getEmployees() {
         return this._http.get<IEmployee[]>(this.employeeUrl);
     }
