@@ -18,7 +18,7 @@ export class EmployeeService {
         let options = new RequestOptions({ headers: this.myheaders })
 
     }
-    private employeeUrl = 'http://13.232.219.107:8080/employee-portal/api';
+    private employeeUrl = 'http://springapps:8080/employee-portal/api';
     getEmployees() {
         return this._http.get<IEmployee[]>(this.employeeUrl);
     }
